@@ -9,16 +9,14 @@ money_machine = MoneyMachine()
 turn_off = False
 
 while not turn_off:
-
     choice = input(f"What would you like? ({menu.get_items()}): ").lower()
-
     if choice == "report":
         coffee_maker.report()
         money_machine.report()
     elif choice == "off":
         turn_off = True
     elif menu.find_drink(choice) is None:
-        break
+        continue
     else:
         drink_choice = menu.find_drink(choice)
         if coffee_maker.is_resource_sufficient(drink_choice):
