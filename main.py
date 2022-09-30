@@ -22,5 +22,5 @@ while not turn_off:
     else:
         drink_choice = menu.find_drink(choice)
         if coffee_maker.is_resource_sufficient(drink_choice):
-            money_machine.make_payment(drink_choice.cost)
-            coffee_maker.make_coffee(drink_choice)
+            if money_machine.make_payment(drink_choice.cost):
+                coffee_maker.make_coffee(drink_choice)
